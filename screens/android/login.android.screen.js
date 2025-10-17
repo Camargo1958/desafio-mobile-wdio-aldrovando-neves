@@ -1,7 +1,7 @@
 export default class LoginAndroidScreen {
 
     // Login elements
-    get lblLogin() { return $(new UiSelector().text("Login").instance(0)) }
+    get lblLogin() { return $(android=new UiSelector().text("Login").instance(0)) }
     get inputLoginEmail() { return $('~input-email') }
     get inputLoginPassword() { return $('~input-password') }
     get btnLogin() { return $('~button-LOGIN') }
@@ -42,13 +42,14 @@ export default class LoginAndroidScreen {
     }
 
     // Sign up elements
-    get lblSignUp() { return $(new UiSelector().text("Sign up")) }
-    get lblSignUp() { return $(UiSelector().text("Sign up")) }
-    get inputEmail() { return $(new UiSelector().text("Email")) }
-    get inputPassword() { return $(new UiSelector().text("Password")) }
-    get inputConfirmPassword() { return $(new UiSelector().text("Confirm password")) }
-    get btnSignUp() { return $(new UiSelector().description("button-SIGN UP")) }
-    get confirmationModal() { return $(new UiSelector().textContains("Signed Up!")) }
+    get lblSignUp() { return $('[text="Sign up"]') }
+    get inputEmail() { return $('[text="Email"]') }
+    get inputPassword() { return $('[text="Password"]') }
+    get inputConfirmPassword() { return $('[text="Confirm password"]') }
+    get btnSignUp() { return $('~button-SIGN UP') }
+    get confirmationModalTitle() { return $('[id="android:id/alertTitle"]') }
+    get confirmationModalMessage() { return $('//android.widget.TextView[@resource-id="android:id/message"]') }
+    get confirmationModalBtnOk() { return $('//android.widget.Button[@resource-id="android:id/button1"]') }
 
     async clickLblSignUp() {
         await this.lblSignUp.waitForDisplayed({ timeout: 2000 })
@@ -74,6 +75,20 @@ export default class LoginAndroidScreen {
         await this.btnSignUp.waitForDisplayed({ timeout: 2000 })
         await this.btnSignUp.click()
     }
+    async getConfirmationModalTitleText() {
+        await this.confirmationModalTitle.waitForDisplayed({ timeout: 2000 })
+        return this.confirmationModalTitle.getText()
+    }
+
+    async getConfirmationModalMessageText() {
+        await this.confirmationModalMessage.waitForDisplayed({ timeout: 2000 })
+        return this.confirmationModalMessage.getText()
+    }
+
+    async clickConfirmationModalBtnOk() {
+        await this.confirmationModalBtnOk.waitForDisplayed({ timeout: 2000 })
+        await this.confirmationModalBtnOk.click()
+    } 
 
     async doSignUp(email, pwd) {
         await this.clickLblSignUp()

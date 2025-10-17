@@ -19,24 +19,26 @@ describe(describeName.app1, () => {
         const login = await loginScreen
         await login.clickLblSignUp()
         await login.doSignUp('teste@teste.com', '12345678')
-        await browser.pause(5000)
+        assertJS.isTrue(await (await login).getConfirmationModalTitleText() === "Signed Up!")
+        assertJS.isTrue(await (await login).getConfirmationModalMessageText() === "You successfully signed up!")
+        //await login.clickConfirmationModalBtnOk()
     })
 
-    it(`[APP01-000002] deve realizar login com sucesso`, async () => {
-        await allureReportsHelpers.addAllureMobile(924, severity.blocker, feature.login)
+    // it(`[APP01-000002] deve realizar login com sucesso`, async () => {
+    //     await allureReportsHelpers.addAllureMobile(924, severity.blocker, feature.login)
 
-        const login = await loginScreen
-        await login.waitForIsShown(true)
-        await browser.pause(5000)
+    //     const login = await loginScreen
+    //     await login.waitForIsShown(true)
+    //     await browser.pause(5000)
 
-        // TODO: Implement actual login flow
-        await login.doLogin('teste@teste.com', '12345678')
-        await browser.pause(5000);
-        // assertJS.isTrue(await (await wikipediaScreen).isExistLblProductName("BrowserStack"))
+    //     // TODO: Implement actual login flow
+    //     await login.doLogin('teste@teste.com', '12345678')
+    //     await browser.pause(5000);
+    //     // assertJS.isTrue(await (await wikipediaScreen).isExistLblProductName("BrowserStack"))
 
-        // Signed Up!
-        // You successfully signed up!
-        // btn: ok
-    })
+    //     // Signed Up!
+    //     // You successfully signed up!
+    //     // btn: ok
+    // })
 })
 

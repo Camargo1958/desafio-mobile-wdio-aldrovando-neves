@@ -1,7 +1,6 @@
 export default class HomeAndroidScreen { 
 
     get btnLogin() { return $('//android.widget.TextView[@text="Login"]') }
-    //get btnLogin() { return $(new UiSelector().text("󰍂")) }
 
     async clickBtnLogin() {
         console.log('Attempting to click btnLogin with selector:', this.btnLogin.selector)
