@@ -5,7 +5,7 @@ export default class LoginAndroidScreen {
     get inputLoginEmail() { return $('~input-email') }
     get inputLoginPassword() { return $('~input-password') }
     get btnLogin() { return $('~button-LOGIN') }
-    get emptyEmailValidationMessage() { return $('//android.widget.TextView[@text="Please enter a valid email address"]') }
+    get invalidEmailValidationMessage() { return $('//android.widget.TextView[@text="Please enter a valid email address"]') }
     get invalidPasswordValidationMessage() { return $('//android.widget.TextView[@text="Please enter at least 8 characters"]') }
 
     async clickLblLogin() {
@@ -32,8 +32,8 @@ export default class LoginAndroidScreen {
         return this.btnLogin.isDisplayed()
     }
 
-    async isEmptyEmailValidationMessageDisplayed() {
-        return this.emptyEmailValidationMessage.isDisplayed()
+    async isInvalidEmailValidationMessageDisplayed() {
+        return this.invalidEmailValidationMessage.isDisplayed()
     }
 
     async isInvalidPasswordValidationMessageDisplayed() {
