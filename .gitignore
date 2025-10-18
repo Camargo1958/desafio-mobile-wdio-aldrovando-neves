@@ -2,3 +2,5 @@ node_modules
 package-lock.json
 allure-re*
 chromedriver
+.env
+.env.local
