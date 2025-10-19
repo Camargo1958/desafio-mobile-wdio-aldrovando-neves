@@ -1,6 +1,8 @@
 export default class HomeIOSScreen {
 
     get btnLogin() { return $('~btn-login') }
+    get btnWebview() { return $('~btn-webview') }
+    get btnForms() { return $('~btn-forms') }
 
     async clickBtnLogin() {
         console.log('Attempting to click btnLogin with selector:', this.btnLogin.selector)
@@ -8,6 +10,16 @@ export default class HomeIOSScreen {
         console.log('btnLogin is displayed, clicking...')
         await this.btnLogin.click()
         console.log('btnLogin clicked successfully')
+    }
+
+    async clickBtnWebview() {
+        await this.btnWebview.waitForDisplayed({ timeout: 2000 })
+        await this.btnWebview.click()
+    }
+
+    async clickBtnForms() {
+        await this.btnForms.waitForDisplayed({ timeout: 2000 })
+        await this.btnForms.click()
     }
 
     async waitForIsShown(isShown = true) {
