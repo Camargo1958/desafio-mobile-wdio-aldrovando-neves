@@ -4,7 +4,8 @@ export default class FormsAndroidScreen {
     get inputField() { return $('//android.widget.EditText[@content-desc="text-input"]') }
     get lblYouHaveTyped() { return $('//android.widget.TextView[contains(@text, "You have typed:")]') }
     get inputTextResult() { return $('~input-text-result') }
-    get switchToggle() { return $('//android.widget.Switch[@content-desc="switch"]') }
+    get toggleSwitch() { return $('//android.widget.Switch[@content-desc="switch"]') }
+    get switchStatusText() { return $('~switch-text') }
     get dropdownList() { return $('//android.widget.Spinner[@content-desc="Dropdown"]') }
     get btnActive() { return $('//android.widget.Button[@text="Active"]') }
     get btnInactive() { return $('//android.widget.Button[@text="Inactive"]') }
@@ -31,14 +32,13 @@ export default class FormsAndroidScreen {
         return await this.inputTextResult.getText()
     }
 
-    async toggleSwitch() {
-        await this.switchToggle.waitForDisplayed({ timeout: 5000 })
-        await this.switchToggle.click()
+    async toggleSwitchOnOff() {
+        await this.toggleSwitch.waitForDisplayed({ timeout: 5000 })
+        await this.toggleSwitch.click()
     }
 
-    async isSwitchOn() {
-        const switchState = await this.switchToggle.getAttribute('checked')
-        return switchState === 'true'
+    async getSwitchStatusText() {
+        return await this.switchStatusText.getText()
     }
 
     async selectDropdownOption(optionText) {
