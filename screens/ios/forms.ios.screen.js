@@ -4,7 +4,7 @@ export default class FormsIOSScreen {
     get inputField() { return $('~text-input') }
     get lblYouHaveTyped() { return $('~typed-text') }
     get inputTextResult() { return $('~input-text-result') }
-    get switchToggle() { return $('~switch-toggle') }
+    get toggleSwitch() { return $('~switch-toggle') }
     get dropdownList() { return $('~dropdown-list') }
     get btnActive() { return $('~btn-active') }
     get btnInactive() { return $('~btn-inactive') }
@@ -31,13 +31,13 @@ export default class FormsIOSScreen {
         return await this.inputTextResult.getText()
     }
 
-    async toggleSwitch() {
-        await this.switchToggle.waitForDisplayed({ timeout: 5000 })
-        await this.switchToggle.click()
+    async toggleSwitchClick() {
+        await this.toggleSwitch.waitForDisplayed({ timeout: 5000 })
+        await this.toggleSwitch.click()
     }
 
     async isSwitchOn() {
-        const switchState = await this.switchToggle.getAttribute('value')
+        const switchState = await this.toggleSwitch.getAttribute('value')
         return switchState === '1'
     }
 

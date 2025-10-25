@@ -40,7 +40,7 @@ export default class FormsAndroidScreen {
         return await this.inputTextResult.getText()
     }
 
-    async toggleSwitchOnOff() {
+    async toggleSwitchClick() {
         await this.toggleSwitch.waitForDisplayed({ timeout: 5000 })
         await this.toggleSwitch.click()
     }

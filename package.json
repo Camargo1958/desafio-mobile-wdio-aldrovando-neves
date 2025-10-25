@@ -6,6 +6,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.7",
     "@badisi/wdio-harness": "^4.2.0",
+    "@eslint/js": "^9.38.0",
     "@wdio/allure-reporter": "^9.20.0",
     "@wdio/appium-service": "^9.20.0",
     "@wdio/cli": "^9.20.0",
@@ -16,6 +17,8 @@
     "@wdio/spec-reporter": "^9.20.0",
     "appium-inspector-plugin": "^2025.8.2",
     "appium-uiautomator2-driver": "^5.0.4",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
     "wdio-wait-for": "^3.1.0"
   },
   "scripts": {

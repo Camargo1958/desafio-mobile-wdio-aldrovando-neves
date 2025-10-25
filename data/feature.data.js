@@ -1,3 +1,5 @@
 export const feature = {
-    login: `Login`
+    login: `Login`,
+    forms: `Forms`,
+    webview: `Webview`
 }

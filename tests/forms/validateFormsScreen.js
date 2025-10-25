@@ -37,7 +37,7 @@ describe(describeName.app1, () => {
         await allureReportsHelpers.addAllureMobile(932, severity.normal, feature.forms)
 
         const initialStatus = await formsScreen.getSwitchStatusText()
-        await formsScreen.toggleSwitchOnOff()
+        await formsScreen.toggleSwitchClick()
         const toggledStatus = await formsScreen.getSwitchStatusText()
         assertJS.isTrue(initialStatus !== toggledStatus)
     })
